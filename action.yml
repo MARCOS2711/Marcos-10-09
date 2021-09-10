@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+	hello_world_job:
+		runs-on: ubuntu-latest
+		name: Tarea para saludar
+		steps:
+		- name: Hola mundo action step
+		id:hello
+		users: actions/Marcos-10-09@v1
+		with:
+			who-to-greet: 'Marcos'
+		# Use the output from the `hello` step
+		- name: Obtener la hora de salida
+		  run:echo "La fecha y hora es ${{Steps.hello.outputs.time}}"
